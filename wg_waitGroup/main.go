@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-func PrintSomething(s string, wg *sync.WaitGroup) {
+func printSomething(s string, wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Println(s)
 }
@@ -27,11 +27,11 @@ func main() {
 	wg.Add(len(words))
 
 	for i, x := range words {
-		PrintSomething(fmt.Sprintf("%d: %s", i, x), &wg)
+		go printSomething(fmt.Sprintf("%d: %s", i, x), &wg)
 	}
 
 	wg.Wait()
 
 	wg.Add(1)
-	PrintSomething("Here is the waitgroup working", &wg)
+	printSomething("Here is the waitgroup working", &wg)
 }
