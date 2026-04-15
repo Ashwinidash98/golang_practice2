@@ -66,9 +66,9 @@ func main() {
 
 }
 func dine() {
-	eatTime = 0 * time.Second
-	sleepTime = 0 * time.Second
-	thinkTime = 0 * time.Second
+	// eatTime = 0 * time.Second
+	// sleepTime = 0 * time.Second
+	// thinkTime = 0 * time.Second
 
 	//wait group
 	wg := &sync.WaitGroup{}
@@ -147,10 +147,9 @@ func diningProblem(Philosopher Philosopher, wg *sync.WaitGroup, forks map[int]*s
 
 	}
 	//The philosophore has finished eating, so print out a message.
-	fmt.Println(Philosopher.name, "--------------------------")
 	fmt.Println(Philosopher.name, "is satisfied.")
 	fmt.Println(Philosopher.name, "left the table.")
-	fmt.Println(Philosopher.name, "--------------------------")
+	fmt.Println("--------------------------")
 
 	//***added this
 	orderMutex.Lock()
