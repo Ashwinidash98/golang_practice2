@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// It simply gets from the ping channel, converts it to uppercase,
+// and appends a few exclamation marks and then sends the transformed text to the pong channel.
 func shout(ping <-chan string, pong chan<- string) {
 	for {
 		s := <-ping
